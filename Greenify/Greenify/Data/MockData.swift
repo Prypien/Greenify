@@ -1,61 +1,6 @@
 import Foundation
-import MapKit
-import SwiftUI
 
-struct Project: Identifiable, Hashable {
-    let id: UUID
-    let name: String
-    let location: String
-    let certification: String
-    let co2Price: Double
-    let description: String
-    let latitude: CLLocationDegrees
-    let longitude: CLLocationDegrees
-
-    var coordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-    }
-}
-
-struct Company: Identifiable, Hashable {
-    let id: UUID
-    let name: String
-    let logo: String
-    let pricePerTon: Double
-}
-
-enum TransactionType: String, Codable, CaseIterable {
-    case buy = "Buy"
-    case sell = "Sell"
-
-    var icon: String {
-        switch self {
-        case .buy:
-            return "arrow.down.circle.fill"
-        case .sell:
-            return "arrow.up.circle.fill"
-        }
-    }
-
-    var tint: Color {
-        switch self {
-        case .buy:
-            return .primaryGreen
-        case .sell:
-            return .secondaryGreen
-        }
-    }
-}
-
-struct Transaction: Identifiable, Hashable {
-    let id: UUID
-    let type: TransactionType
-    let amount: Double
-    let price: Double
-    let date: Date
-}
-
-struct MockData {
+enum MockData {
     static let projects: [Project] = [
         Project(
             id: UUID(),
@@ -105,19 +50,4 @@ struct MockData {
 
     static let walletBalanceEUR: Double = 8450
     static let walletCarbonTons: Double = 145
-}
-
-extension Color {
-    static let primaryGreen = Color(red: 63 / 255, green: 164 / 255, blue: 106 / 255)
-    static let lightBackground = Color(red: 245 / 255, green: 245 / 255, blue: 245 / 255)
-    static let cardBackground = Color.white.opacity(0.92)
-    static let secondaryGreen = Color(red: 90 / 255, green: 187 / 255, blue: 131 / 255)
-}
-
-extension DateFormatter {
-    static let walletFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        return formatter
-    }()
 }

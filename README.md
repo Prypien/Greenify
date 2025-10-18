@@ -64,20 +64,26 @@ Dieses Projekt ist aktuell ein **reines Frontend-Mockup** – perfekt als Design
 
 ```
 Greenify/
-├── Models/
-│   ├── Project.swift
-│   ├── Company.swift
-│   ├── Transaction.swift
-├── Data/
-│   ├── MockData.swift
-├── Views/
-│   ├── HomeView.swift
-│   ├── ProjectsView.swift
-│   ├── CompanyListView.swift
-│   ├── WalletView.swift
-│   ├── ProfileView.swift
-├── GreenifyApp.swift
-├── README.md
+├── Greenify.xcodeproj
+├── Greenify/
+│   ├── Data/
+│   │   └── MockData.swift
+│   ├── Extensions/
+│   │   ├── Color+Theme.swift
+│   │   └── DateFormatter+Wallet.swift
+│   ├── Models/
+│   │   ├── Company.swift
+│   │   ├── Project.swift
+│   │   └── Transaction.swift
+│   ├── Views/
+│   │   ├── CompanyListView.swift
+│   │   ├── HomeView.swift
+│   │   ├── MainTabView.swift
+│   │   ├── ProfileView.swift
+│   │   ├── ProjectDetailView.swift
+│   │   └── WalletView.swift
+│   └── GreenifyApp.swift
+└── README.md
 ```
 
 ---
